@@ -14,14 +14,21 @@ const Content = (props) => {
   return (
     <>
       {props.coursesDetails.map((courseDetail) => (
-        <p key={courseDetail.id}>
-          {courseDetail.part}
-          {courseDetail.exercises}
-        </p>
+        <Part key={courseDetail.id}
+          courseDetail={courseDetail} />
       ))}
     </>
   )
 
+}
+
+const Part = (props) => {
+  const courseDetail = props.courseDetail;
+  return (
+    <>
+      <p>{courseDetail.part} {courseDetail.exercises}</p>
+    </>
+  )
 }
 
 const Total = (props) => {
